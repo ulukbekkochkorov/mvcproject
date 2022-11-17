@@ -40,6 +40,8 @@ public class GroupRepositoryImpl implements GroupRepository {
     public void updateGroup(Group group, Long id) {
         Group group1 = entityManager.find(Group.class,id);
         group1.setGroupName(group.getGroupName());
+        group1.setDateOfStart(group.getDateOfStart());
+        group1.setImage(group.getImage());
         entityManager.merge(group1);
     }
 

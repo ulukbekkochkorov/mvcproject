@@ -8,16 +8,15 @@
     <title>Courses</title>
     <style>table,
     td {
-        border: 1px solid #333;
+        border: 1px solid #333333FF;
         margin-top: 200px;
         margin-left: auto;
         margin-right: auto;
         font-size: 25px;
     }
-
     tfoot {
-        background-color: #333;
-        color: #fff;
+        background-color: #333333FF;
+        color: #FFFFFFFF;
     }
     </style>
     <style>
@@ -34,7 +33,9 @@
         <th scope="colgroup">Id</th>
         <th scope="col">Course name</th>
         <th scope="col">Duration</th>
+        <th scope="col">Description</th>
         <th scope="col">Group</th>
+        <th scope="col">Instructor</th>
         <th scope="col">Update</th>
         <th scope="col">Delete</th>
     </tr>
@@ -47,23 +48,12 @@
         <td th:text="${course.description}"></td>
 
 
-        <td>
-            <form th:method="POST"
-                  th:action="@{/{companyId}/{courseId}/assignInsToCourse(companyId=${companyId}, courseId=${course.getId()})}">
-                <select name="group" class="form-select form-select-sm"  aria-label=".form-select-sm example"
-                        th:object="${group}"
-                        th:field="*{id}">
-                    <option th:each="group : ${groups}"
-                            th:value="${groups.id}"
-                            th:text="${groups.groupName}">
-                    </option>
-                </select>
-                <input type="submit" value="assign" style="height: 30px;width: 60px; background: azure"/>
-            </form>
-        </td>
-
         <td><a th:href="@{/group/{id}(id=${course.getId()})}">
-            <button>group</button>
+            <button>Group</button>
+        </a>
+        </td>
+        <td><a th:href="@{/group/{id}(id=${course.getId()})}">
+            <button>Instructor</button>
         </a>
         </td>
 

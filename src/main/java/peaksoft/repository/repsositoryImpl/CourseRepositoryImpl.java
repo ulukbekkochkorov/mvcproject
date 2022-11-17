@@ -41,6 +41,7 @@ public class CourseRepositoryImpl implements CourseRepository {
         Course course1 = entityManager.find(Course.class,id);
         course1.setCourseName(course.getCourseName());
         course1.setDuration(course.getDuration());
+        course1.setDescription(course.getDescription());
         entityManager.merge(course1);
     }
 

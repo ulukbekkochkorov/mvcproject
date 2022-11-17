@@ -23,14 +23,12 @@ public class Lesson {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "lesson_seq")
     private Long id;
 
-    public Lesson(String lessonName) {
-        this.lessonName = lessonName;
-    }
-
     @Column(length = 100000,name = "lesson_name")
     private String lessonName;
 
-
+    public Lesson(String lessonName) {
+        this.lessonName = lessonName;
+    }
     @ManyToOne(cascade = {PERSIST, MERGE, REFRESH, DETACH}, fetch = FetchType.EAGER)
     private Course course;
 

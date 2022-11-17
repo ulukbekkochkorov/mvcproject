@@ -42,7 +42,9 @@ public class InstructorRepositoryImpl implements InstructorRepository {
         Instructor instructor1 = entityManager.find(Instructor.class, id);
         instructor1.setFirstName(instructor.getFirstName());
         instructor1.setLastName(instructor.getLastName());
+        instructor1.setPhoneNumber(instructor.getPhoneNumber());
         instructor1.setEmail(instructor.getEmail());
+        instructor1.setSpecialization(instructor.getSpecialization());
         entityManager.merge(instructor1);
     }
 

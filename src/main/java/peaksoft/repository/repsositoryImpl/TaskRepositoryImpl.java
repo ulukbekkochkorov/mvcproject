@@ -40,6 +40,7 @@ public class TaskRepositoryImpl implements TaskRepository {
     public void updateTask(Task task, Long id) {
         Task task1 = entityManager.find(Task.class, id);
         task1.setTaskName(task.getTaskName());
+        task1.setTaskText(task.getTaskText());
         task1.setDeadline(task.getDeadline());
         entityManager.merge(task1);
     }

@@ -3,46 +3,31 @@ package peaksoft.api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import peaksoft.model.Course;
 import peaksoft.model.Group;
-import peaksoft.service.CompanyService;
 import peaksoft.service.CourseService;
 import peaksoft.service.GroupService;
-
-import java.util.List;
 
 @Controller
 public class CourseController {
     private final CourseService courseService;
-    private final CompanyService companyService;
-    private final GroupService groups;
+
+    private final GroupService groupService;
 
     @Autowired
-    public CourseController(CourseService courseService, CompanyService companyService, GroupService group) {
+    public CourseController(CourseService courseService, GroupService group) {
         this.courseService = courseService;
-        this.companyService = companyService;
-        this.groups = group;
+        this.groupService = group;
     }
 
-//    @PostMapping("/{companyId}/{courseId}/assignInsToCourse")
-//    public String assignInstructor(@PathVariable("courseId") Long courseId,
-//                                   @PathVariable("companyId") Long companyId,
-//                                   @ModelAttribute("inst") Group group){
-//        group.setCourses((List<Course>) courseService.getCourseById(courseId));
-//        instructorService.assignInstructor(courseId, group.getId());
-//        return "redirect:/courses/" + companyId;
-//    }
 
     @GetMapping("/courses/{id}")
     public String getAllCourses(@PathVariable Long id, Model model,
                                 @ModelAttribute("group") Group group) {
-        model.addAttribute("courses", courseService.getCourseById(id));
-        model.addAttribute("companyId",id);
-        model.addAttribute("groups", groups.getGroupById(id));
+        model.addAttribute("courses", courseService.getAllCourses());
+        model.addAttribute("companyId", id);
+        model.addAttribute("group", groupService.getGroupById(id));
         return "/course/courses";
     }
 
@@ -64,7 +49,7 @@ public class CourseController {
     public String saveCourse(@ModelAttribute("course") Course course,
                              @PathVariable Long id) {
         courseService.addCourse(id, course);
-        return "redirect:/courses/"+id;
+        return "redirect:/courses/" + id;
     }
 
     @GetMapping("/update/{id}")
@@ -79,13 +64,13 @@ public class CourseController {
     public String saveUpdateCourse(@PathVariable("companyId") Long companyId,
                                    @PathVariable("id") Long id,
                                    @ModelAttribute("course") Course course) {
-        courseService.updateCourse(course,id);
-        return "redirect:/courses/"+companyId;
+        courseService.updateCourse(course, id);
+        return "redirect:/courses/" + companyId;
     }
 
     @GetMapping("/{companyId}/{id}/deleteCourse")
     public String deleteCourse(@PathVariable("id") Long id, @PathVariable("companyId") Long companyId) {
         courseService.deleteCourse(id);
-        return "redirect:/courses/"+companyId;
+        return "redirect:/courses/" + companyId;
     }
 }
