@@ -3,7 +3,6 @@ package peaksoft.model;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import peaksoft.model.enumModel.StudyFormat;
 
 import javax.persistence.*;
 
@@ -21,13 +20,6 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "student_seq")
     private Long id;
 
-    public Student(String firstName, String lastName, String phoneNumber, String email, StudyFormat studyFormat) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
-        this.studyFormat = studyFormat;
-    }
 
     @Column(length = 100000,name = "first_name")
     private String firstName;
@@ -42,9 +34,17 @@ public class Student {
     private String email;
 
     @Column(length = 100000,name = "study_format")
-    private StudyFormat studyFormat;
+    private String studyFormat;
 
 
     @ManyToOne(cascade = {PERSIST,MERGE,DETACH,REFRESH},fetch = FetchType.EAGER)
     private Group groups;
+
+    public Student(String firstName, String lastName, String phoneNumber, String email, String studyFormat) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.studyFormat = studyFormat;
+    }
 }

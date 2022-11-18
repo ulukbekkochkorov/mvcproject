@@ -42,12 +42,8 @@ public class Group {
         }
         courses.add(course);
     }
-
-    public Group(String groupName, String dateOfStart, String image) {
-        this.groupName = groupName;
-        this.dateOfStart = dateOfStart;
-        this.image = image;
-    }
+    @ManyToOne
+    private Company company;
 
     @OneToMany(cascade = {ALL},fetch = FetchType.LAZY,mappedBy = "groups")
     private List<Student> students;
@@ -57,5 +53,11 @@ public class Group {
             students=new ArrayList<>();
         }
         students.add(student);
+    }
+
+    public Group(String groupName, String dateOfStart, String image) {
+        this.groupName = groupName;
+        this.dateOfStart = dateOfStart;
+        this.image = image;
     }
 }

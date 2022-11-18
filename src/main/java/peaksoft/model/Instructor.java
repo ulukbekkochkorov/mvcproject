@@ -6,6 +6,8 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
+import java.util.List;
+
 import static javax.persistence.CascadeType.*;
 import static javax.persistence.CascadeType.DETACH;
 
@@ -21,13 +23,6 @@ public class Instructor {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "instructor_seq")
     private Long id;
 
-    public Instructor(String firstName, String lastName, String phoneNumber, String email, String specialization) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
-        this.specialization = specialization;
-    }
 
     @Column(length = 100000,name = "first_name")
     private String firstName;
@@ -45,6 +40,17 @@ public class Instructor {
     private String specialization;
 
 
-    @ManyToOne(cascade = {PERSIST,MERGE,REFRESH,DETACH},fetch = FetchType.EAGER)
+    @ManyToOne(cascade = {MERGE,REFRESH,DETACH},fetch = FetchType.EAGER)
     private Course courses;
+
+
+
+
+    public Instructor(String firstName, String lastName, String phoneNumber, String email, String specialization) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.specialization = specialization;
+    }
 }

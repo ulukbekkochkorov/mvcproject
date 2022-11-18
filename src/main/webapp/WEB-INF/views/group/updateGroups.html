@@ -5,23 +5,35 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>update-group</title>
+    <style>
+        body{
+            margin-top: 250px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        input{
+
+        }
+    </style>
+    <title>update-course</title>
 </head>
 <body>
 <form
-        th:action="@{/{courseId}/{id}/updateGroup(id=${group.id}, courseId=${courseId})}"
+        th:action="@{/{courseId}/{id}/saveUpdateGroup(id=${group.id}, courseId=${curseId})}"
         th:object="${group}"
         method="post">
 
-    <input type="hidden" name="id" th:field="*{id}">
-    <input type="text" name="courseName" th:field="*{courseName}" placeholder="Course Name">
-    <br><br>
-    <input type="text" name="duration" th:field="*{duration}" placeholder="Duration">
-    <br><br>
-    <input type="text" name="duration" th:field="*{description}" placeholder="Description">
-    <br><br>
-    <input type="submit" value="Add">
+        <input type="hidden" name="id" th:field="*{id}">
 
-</form>
-</body>
-</html>
+        <input type="text" name="groupName" th:field="*{groupName}" placeholder="Group name ">
+        <br><br>
+        <input type="text" name="dateOfStart" th:field="*{dateOfStart}" placeholder="Date Of Start">
+        <br><br>
+        <input type="text" name="image" th:field="*{image}" placeholder="Image">
+        <br><br>
+        <input type="submit" value="Add">
+
+    </form>
+    </body>
+    </html>

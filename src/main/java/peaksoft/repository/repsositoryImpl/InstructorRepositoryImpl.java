@@ -27,7 +27,7 @@ public class InstructorRepositoryImpl implements InstructorRepository {
     @Override
     public void addInstructor(Long id, Instructor instructor) {
         Course course = entityManager.find(Course.class, id);
-        course.addInstructors(instructor);
+        course.addInstructor(instructor);
         instructor.setCourses(course);
         entityManager.merge(course);
     }
@@ -58,7 +58,7 @@ public class InstructorRepositoryImpl implements InstructorRepository {
         Instructor instructor = entityManager.find(Instructor.class, instructorId);
         Course course = entityManager.find(Course.class, courseId);
         instructor.setCourses(course);
-        course.addInstructors(instructor);
+        course.addInstructor(instructor);
         entityManager.merge(instructor);
         entityManager.merge(course);
     }

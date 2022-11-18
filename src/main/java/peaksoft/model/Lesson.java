@@ -26,9 +26,6 @@ public class Lesson {
     @Column(length = 100000,name = "lesson_name")
     private String lessonName;
 
-    public Lesson(String lessonName) {
-        this.lessonName = lessonName;
-    }
     @ManyToOne(cascade = {PERSIST, MERGE, REFRESH, DETACH}, fetch = FetchType.EAGER)
     private Course course;
 
@@ -41,5 +38,9 @@ public class Lesson {
             tasks = new ArrayList<>();
         }
         tasks.add(task);
+    }
+
+    public Lesson(String lessonName) {
+        this.lessonName = lessonName;
     }
 }

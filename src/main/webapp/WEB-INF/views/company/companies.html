@@ -32,6 +32,7 @@
         <th scope="col">Company name</th>
         <th scope="col">Located country</th>
         <th scope="col">Courses</th>
+        <th scope="col">Groups</th>
         <th scope="col">Update</th>
         <th scope="col">Delete</th>
     </tr>
@@ -46,8 +47,9 @@
         <td><a th:href="@{/courses/{id}(id=${company.getId()})}">
             <button>Courses</button>
         </a>
-        </td>
-
+        <td><a th:href="@{/groups/{id}(id=${company.getId()})}">
+            <button>Group</button>
+        </a>
 
         <td><a th:href="@{/updateCompany(companyId=${company.id})}">
             <button>Update</button>
