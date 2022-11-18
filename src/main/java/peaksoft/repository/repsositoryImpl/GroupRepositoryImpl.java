@@ -19,25 +19,29 @@ public class GroupRepositoryImpl implements GroupRepository {
 
     @Override
     public List<Group> getAllGroup() {
-        List<Group> groups = entityManager.createQuery("select c from Group c", Group.class).getResultList();
-        return groups;
+        System.out.println("getAllGroupRepository");
+         return entityManager.createQuery("select c from Group c", Group.class).getResultList();
     }
 
     @Override
     public void addGroup(Long id, Group group) {
+        System.out.println("addGroupRepository");
         Course course=entityManager.find(Course.class,id);
         course.addGroups(group);
+        group.addCourses(course);
         entityManager.merge(group);
     }
 
 
     @Override
     public Group getGroupById(Long id) {
+        System.out.println("getGroupByIdRepository");
         return entityManager.find(Group.class, id);
     }
 
     @Override
     public void updateGroup(Group group, Long id) {
+        System.out.println("updateGroupRepository");
         Group group1 = entityManager.find(Group.class,id);
         group1.setGroupName(group.getGroupName());
         group1.setDateOfStart(group.getDateOfStart());
@@ -47,6 +51,17 @@ public class GroupRepositoryImpl implements GroupRepository {
 
     @Override
     public void deleteGroup(Long id) {
+        System.out.println("deleteGroupRepository");
         entityManager.remove(entityManager.find(Group.class, id));
+    }
+
+    @Override
+    public void assignGroup(Long courseId, Long groupId) {
+        Group group = entityManager.find(Group.class, groupId);
+        Course course = entityManager.find(Course.class, courseId);
+        group.addCourses(course);
+        course.addGroups(group);
+        entityManager.merge(group);
+        entityManager.merge(course);
     }
 }

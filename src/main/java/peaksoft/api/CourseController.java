@@ -9,7 +9,7 @@ import peaksoft.model.Group;
 import peaksoft.service.CourseService;
 import peaksoft.service.GroupService;
 
-@Controller
+@Controller()
 public class CourseController {
     private final CourseService courseService;
 
@@ -33,6 +33,7 @@ public class CourseController {
 
 
     @GetMapping("/getCourses/{id}")
+    @RequestMapping(method = RequestMethod.GET, params = {"id"})
     public String getCourseById(@PathVariable("id") Long id, Model model) {
         model.addAttribute("course", courseService.getCourseById(id));
         return "/course/courses";

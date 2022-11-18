@@ -27,15 +27,16 @@ public class Task {
     @Column(length = 100000,name = "task_text")
     private String taskText;
 
-    public Task(String taskName, String taskText, String deadline) {
-        this.taskName = taskName;
-        this.taskText = taskText;
-        this.deadline = deadline;
-    }
 
     @Column(length = 100000,name = "deadline")
     private String deadline;
 
     @ManyToOne(fetch = FetchType.EAGER,cascade = {PERSIST,MERGE,REFRESH,DETACH})
     private Lesson lesson;
+
+    public Task(String taskName, String taskText, String deadline) {
+        this.taskName = taskName;
+        this.taskText = taskText;
+        this.deadline = deadline;
+    }
 }

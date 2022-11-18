@@ -26,10 +26,6 @@ public class Company {
     @Column(length = 100000,name = "company_name")
     private String companyName;
 
-    public Company(String companyName, String locatedCountry) {
-        this.companyName = companyName;
-        this.locatedCountry = locatedCountry;
-    }
 
     @Column(length = 100000,name = "located_country")
     private String locatedCountry;
@@ -43,6 +39,21 @@ public class Company {
             courses=new ArrayList<>();
         }
         courses.add(course);
+    }
+
+
+
+    @OneToMany(cascade = {MERGE, REMOVE, REFRESH, DETACH}, fetch = LAZY, mappedBy = "company")
+    private List<Group> groups;
+    public void addGroups(Group group){
+        if (groups==null){
+            groups=new ArrayList<>();
+        }
+        groups.add(group);
+    }
+    public Company(String companyName, String locatedCountry) {
+        this.companyName = companyName;
+        this.locatedCountry = locatedCountry;
     }
 
 }

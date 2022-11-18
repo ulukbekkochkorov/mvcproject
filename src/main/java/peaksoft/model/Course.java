@@ -33,11 +33,6 @@ public class Course {
     @Column(length = 100000,name = "description")
     private String description;
 
-    public Course(String courseName, String duration, String description) {
-        this.courseName = courseName;
-        this.duration = duration;
-        this.description = description;
-    }
 
     @ManyToOne(cascade = {PERSIST,MERGE,REFRESH,DETACH},fetch = EAGER)
     private Company company;
@@ -54,10 +49,10 @@ public class Course {
     }
 
 
-    @OneToMany(cascade = {ALL},fetch = LAZY,mappedBy = "courses")
+    @OneToMany (cascade = {MERGE,DETACH,REFRESH,REMOVE},fetch = LAZY, mappedBy = "courses")
     private List<Instructor> instructors;
 
-    public void addInstructors(Instructor instructor){
+    public void addInstructor(Instructor instructor){
         if (instructors==null){
             instructors=new ArrayList<>();
         }
@@ -72,5 +67,11 @@ public class Course {
             lessons=new ArrayList<>();
         }
         lessons.add(lesson);
+    }
+
+    public Course(String courseName, String duration, String description) {
+        this.courseName = courseName;
+        this.duration = duration;
+        this.description = description;
     }
 }
