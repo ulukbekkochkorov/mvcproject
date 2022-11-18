@@ -10,9 +10,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33e657be-bbdf-44bd-8ecb-02b9400d12d0" name="Changes" comment="mvc">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d5c6a84c-8b27-4664-a859-a8276ead7044.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d5c6a84c-8b27-4664-a859-a8276ead7044.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d5c6a84c-8b27-4664-a859-a8276ead7044/storage_v2/_src_/database/mvc.2qcBAA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d5c6a84c-8b27-4664-a859-a8276ead7044/storage_v2/_src_/database/mvc.2qcBAA/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/peaksoft/api/CourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/peaksoft/api/CourseController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/peaksoft/api/GroupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/peaksoft/api/GroupController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/peaksoft/config/HibernateConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/peaksoft/config/HibernateConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/peaksoft/model/Lesson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/peaksoft/model/Lesson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/peaksoft/repository/repsositoryImpl/CourseRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/peaksoft/repository/repsositoryImpl/CourseRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/peaksoft/repository/repsositoryImpl/GroupRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/peaksoft/repository/repsositoryImpl/GroupRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/peaksoft/repository/repsositoryImpl/InstructorRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/peaksoft/repository/repsositoryImpl/InstructorRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/peaksoft/repository/repsositoryImpl/TaskRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/peaksoft/repository/repsositoryImpl/TaskRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/company/addCompany.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/company/addCompany.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/company/companies.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/company/companies.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/course/courses.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/course/courses.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/course/updateCourse.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/course/updateCourse.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/group/addGroup.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/group/addGroup.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/group/groups.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/group/groups.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/group/updateGroups.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/group/updateGroups.html" afterDir="false" />
     </list>
@@ -74,7 +88,6 @@
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;copyright&quot;,
     &quot;spring.configuration.checksum&quot;: &quot;bf3d6d02569807fa3e6df7de1838dd26&quot;
   },
@@ -216,8 +229,7 @@
       <updated>1668534736617</updated>
       <workItem from="1668534738253" duration="658000" />
       <workItem from="1668589061000" duration="23837000" />
-      <workItem from="1668676791246" duration="27020000" />
-      <workItem from="1668765644040" duration="20389000" />
+      <workItem from="1668676791246" duration="1705000" />
     </task>
     <task id="LOCAL-00001" summary="mvc">
       <created>1668608882636</created>
@@ -233,21 +245,7 @@
       <option name="project" value="LOCAL" />
       <updated>1668608904201</updated>
     </task>
-    <task id="LOCAL-00003" summary="mvc">
-      <created>1668679168769</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1668679168769</updated>
-    </task>
-    <task id="LOCAL-00004" summary="mvc">
-      <created>1668788737830</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1668788737830</updated>
-    </task>
-    <option name="localTasksCounter" value="5" />
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

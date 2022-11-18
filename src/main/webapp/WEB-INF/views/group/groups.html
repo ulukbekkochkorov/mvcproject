@@ -15,7 +15,6 @@
         font-size: 25px;
     }
 
-    thread,
     tfoot {
         background-color: #333;
         color: #fff;
@@ -34,8 +33,9 @@
     <tr>
         <th scope="colgroup">Id</th>
         <th scope="col">Group name</th>
-        <th scope="col">Date of start</th>
-        <th scope="col">image</th>
+        <th scope="col">GroupName</th>
+        <th scope="col">DateOfStart</th>
+        <th scope="col">Students</th>
         <th scope="col">Update</th>
         <th scope="col">Delete</th>
     </tr>
@@ -47,11 +47,33 @@
         <td th:text="${group.dateOfStart}"></td>
         <td th:text="${group.image}"></td>
 
-        <td><a th:href="@{/{id}/updateGroup(id=${group.id})}">
+        <td>
+            <form th:method="POST"
+                  th:action="@{/{courseId}/{groupId}/assignStu(courseId=${companyId}, groupId=${group.getId()})}">
+                <select name="student" class="form-select form-select-sm"  aria-label=".form-select-sm example"
+                        th:object="${student}"
+                        th:field="*{id}">
+                    <option th:each="student : ${students}"
+                            th:value="${student.id}"
+                            th:text="${student.firstName}">
+                    </option>
+                </select>
+                <input type="submit" value="assign" style="height: 30px;width: 60px; background: azure"/>
+            </form>
+        </td>
+
+
+        <td><a th:href="@{/lessons/{id}(id=${group.getId()})}">
+            <button>Lessons</button>
+        </a>
+        </td>
+
+        <td><a th:href="@{/update/{id}(id=${group.id})}">
             <button>Update</button>
         </a>
         </td>
-        <td><a  th:method="GET" th:href="@{/{courseId}/{id}/deleteGroup(id=${group.id},courseId=${courseId})}">
+        <td><a  th:method="GET" th:href="@{/{courseId}/{id}/deleteGroup(id=${group.id},courseId=${companyId})}"
+                onclick="return confirm('Are you sure to delete this course?')">
             <button>Delete</button>
         </a>
         </td>
@@ -60,8 +82,8 @@
 </table>
 <br><br><br><br>
 <div style="text-align: center">
-    <a th:href="@{/groups/{id}/addGroup(id=${courseId})}">
-        <button style="font-size: 25px;"> Add Group </button>
+    <a th:href="@{/courses/{id}/addCourse(id=${companyId})}">
+        <button style="font-size: 25px;"> Add Course </button>
     </a>
 </div>
 </body>
